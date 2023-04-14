@@ -1,22 +1,5 @@
 function onQRCodeScanned(scannedText)
 {
-    switch (scannedText) {
-        case 'Megalodon':
-            Megalodon();
-          break;
-        case 'Mosasaurus':
-            Mosasaurus();
-          break;
-        case 'Ballena Azul':
-            Ballena();
-          break;
-        case 'Tiburon':
-            Tiburon();
-          break;
-        case 'Celacanto':
-          Celacanto();
-          break;
-      }
 }
 
 //funtion returning a promise with a video stream
