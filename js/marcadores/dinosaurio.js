@@ -1,3 +1,7 @@
+let index = 0;
+const modelos = ["trex", "brachi", "dinosaur", "pterodactyl", "mega", "mesasa", "triceratops", "velociraptor"];
+const fichas = ["Brachiosaurus.png", "Megalodon.png", "Mosasaurus.png", "Pterodactylo.png", "Stegosaurus.png", "TRex.png", "Triceratops.png", "Velociraptor.png"];
+
 function onQRCodeScanned(scannedText)
 {
 }
@@ -43,4 +47,44 @@ function JsQRScannerReady()
         //append the jbScanner to an existing DOM element
         jbScanner.appendTo(scannerParentElement);
     }        
+}
+
+function siguiente() {
+  let provmod = modelos;
+  let provimg = fichas;
+  if (index == 8) {
+    index = 0;
+    document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
+    provmod.splice(index, 1);
+    document.getElementById("inf").removeAttribute('src');
+    if (document.getElementById('ch').checked) {
+      document.getElementById("inf").src = "../../assets/Fichas/Acuaticos/" + `#${provimg[index]}`;
+      document.getElementById("imagenes").style.display = "block";
+    }
+    provmod.forEach(function (numero) {
+      document.querySelector(`#${provmod[index]}`).setAttribute("visible", false);
+    });
+    index++;
+    provmod = modelos;
+  }else{
+    provmod.forEach(function(numero) {
+      console.log(numero);
+  });
+    document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
+    provmod.splice(index, 1);
+    document.getElementById("inf").removeAttribute('src');
+    if (document.getElementById('ch').checked) {
+      document.getElementById("inf").src = "../../assets/Fichas/" + `#${provimg[index]}`;
+      document.getElementById("imagenes").style.display = "block";
+    }
+    provmod.forEach(function (numero) {
+      document.querySelector(`#${numero}`).setAttribute("visible", false);
+    });
+    index++;
+    provmod = modelos;
+  }
+}
+
+function anterior(){
+
 }
