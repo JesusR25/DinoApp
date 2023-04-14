@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <title>Animales Acuaticos</title>
+        <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+        <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/gh/donmccurdy/aframe-extras@v6.1.1/dist/aframe-extras.js"></script>
+        <link rel="stylesheet" href="../css/style.css">
+        <script type="text/javascript" src="../js/jsqrscanner.nocache.js"></script>
+        <script type="text/javascript" src="../js/marcadores/dinosaurio.js"></script>
+        <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+    </head>
+    <body>
+        <label class="container">Información
+            <input type="checkbox" checked="checked" id="ch">
+            <span class="checkmark"></span>
+        </label>
+        <div id="imagenes" style="z-index: 9999; position: fixed; display: none; " onclick="ocultar();">
+            <img id="inf" src="" width="960" height="640" />
+        </div>
+        <div class="qrscanner" id="scanner"></div>
+        <a-scene renderer="colorManagement: true" vr-mode-ui="enabled: false" loading-screen="enabled:false" mega mosa ballena tibu cela>
+            <a-assets>
+                <a-asset-item id="blue" src="../assets/Animales/Acuaticos/blue_whale.glb"></a-asset-item>
+                <a-asset-item id="cela" src="../assets/Animales/Acuaticos/Celacanto.glb"></a-asset-item>
+                <a-asset-item id="great" src="../assets/Animales/Acuaticos/great_white_shark.glb"></a-asset-item>
+                <a-asset-item id="mega" src="../assets/Animales/Acuaticos/megamod.glb"></a-asset-item>
+                <a-asset-item id="mosa" src="../assets/Animales/Acuaticos/mosasaurus.glb"></a-asset-item>
+                <a-asset-item id="prue" src="../assets/Animales/Acuaticos/modif.glb"></a-asset-item>
+            </a-assets>
+            
+
+            <a-entity id="ballena" visible="false"  position="-0.5 -1.5 -4" rotation="0 90 0" scale="1 1 1" gltf-model="#blue" animation-mixer></a-entity>
+            <a-entity camera></a-entity>
+        </a-scene>
+    </body>
+</html>
