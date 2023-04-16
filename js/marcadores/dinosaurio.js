@@ -1,6 +1,6 @@
-let index = 0;
-const modelos = ["trex", "brachi", "dinosaur", "pterodactyl", "mega", "mesasa", "triceratops", "velociraptor"];
-const fichas = ["Brachiosaurus.png", "Megalodon.png", "Mosasaurus.png", "Pterodactylo.png", "Stegosaurus.png", "TRex.png", "Triceratops.png", "Velociraptor.png"];
+let index = -1;
+const modelos = ["brachi",  "mesasa", "pterodactyl", "dinosaur", "trex", "triceratops", "velociraptor", "mega"];
+const fichas = ["Brachiosaurus.png", "Mosasaurus.png", "Pterodactylo.png", "Stegosaurus.png", "TRex.png", "Triceratops.png", "Velociraptor.png", "Megalodon.png"];
 
 function onQRCodeScanned(scannedText)
 {
@@ -52,39 +52,53 @@ function JsQRScannerReady()
 function siguiente() {
   let provmod = modelos;
   let provimg = fichas;
-  if (index == 8) {
+  if (index == 7) {
     index = 0;
     document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
-    provmod.splice(index, 1);
-    document.getElementById("inf").removeAttribute('src');
-    if (document.getElementById('ch').checked) {
-      document.getElementById("inf").src = "../../assets/Fichas/Acuaticos/" + `#${provimg[index]}`;
-      document.getElementById("imagenes").style.display = "block";
-    }
-    provmod.forEach(function (numero) {
-      document.querySelector(`#${provmod[index]}`).setAttribute("visible", false);
-    });
+    document.querySelector(`#${provmod[7]}`).setAttribute("visible", false);
+    document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
+    document.getElementById("imagenes").style.display = "block";
+  } else {
     index++;
-    provmod = modelos;
-  }else{
-    provmod.forEach(function(numero) {
-      console.log(numero);
-  });
-    document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
-    provmod.splice(index, 1);
-    document.getElementById("inf").removeAttribute('src');
-    if (document.getElementById('ch').checked) {
-      document.getElementById("inf").src = "../../assets/Fichas/" + `#${provimg[index]}`;
+    for(var i=0; i<modelos.length; i++){
+      if(i == index){
+        document.querySelector(`#${provmod[i]}`).setAttribute("visible", true);
+      }else{
+        document.querySelector(`#${provmod[i]}`).setAttribute("visible", false);
+      }
+      document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
       document.getElementById("imagenes").style.display = "block";
-    }
-    provmod.forEach(function (numero) {
-      document.querySelector(`#${numero}`).setAttribute("visible", false);
-    });
-    index++;
-    provmod = modelos;
+     }
   }
 }
 
 function anterior(){
+  let provmod = modelos;
+  let provimg = fichas;
+  if(index <= 0){
+    index = 7;
+    document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
+    document.querySelector(`#${provmod[0]}`).setAttribute("visible", false);
+    document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
+    document.getElementById("imagenes").style.display = "block";
+  }else{
+    index--;
+    for(var i=0; i<modelos.length; i++){
+      if(i == index){
+        document.querySelector(`#${provmod[i]}`).setAttribute("visible", true);
+      }else{
+        document.querySelector(`#${provmod[i]}`).setAttribute("visible", false);
+      }
+     }
+     document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
+    document.getElementById("imagenes").style.display = "block";
+  }
+}
 
+function volver(){
+  window.location.href = "../Paginas/Menu.html";
+}
+
+function ocultar(){
+  document.getElementById('imagenes').style.display = "none";
 }
