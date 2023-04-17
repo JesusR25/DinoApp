@@ -56,42 +56,58 @@ function siguiente() {
     index = 0;
     document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
     document.querySelector(`#${provmod[7]}`).setAttribute("visible", false);
-    document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
-    document.getElementById("imagenes").style.display = "block";
+    document.getElementById("inf").removeAttribute('src');
+    if (document.getElementById("ch").checked) {
+      document.getElementById("inf").src =
+        "../../assets/Fichas/" + `${provimg[index]}`;
+      document.getElementById("imagenes").style.display = "block";
+    }
   } else {
     index++;
-    for(var i=0; i<modelos.length; i++){
-      if(i == index){
+    for (var i = 0; i < modelos.length; i++) {
+      if (i == index) {
         document.querySelector(`#${provmod[i]}`).setAttribute("visible", true);
-      }else{
+      } else {
         document.querySelector(`#${provmod[i]}`).setAttribute("visible", false);
       }
-      document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
-      document.getElementById("imagenes").style.display = "block";
-     }
+      document.getElementById("inf").removeAttribute('src');
+      if (document.getElementById("ch").checked) {
+        document.getElementById("inf").src =
+          "../../assets/Fichas/" + `${provimg[index]}`;
+        document.getElementById("imagenes").style.display = "block";
+      }
+    }
   }
 }
 
-function anterior(){
+function anterior() {
   let provmod = modelos;
   let provimg = fichas;
-  if(index <= 0){
+  if (index <= 0) {
     index = 7;
     document.querySelector(`#${provmod[index]}`).setAttribute("visible", true);
     document.querySelector(`#${provmod[0]}`).setAttribute("visible", false);
-    document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
-    document.getElementById("imagenes").style.display = "block";
-  }else{
+    document.getElementById("inf").removeAttribute('src');
+    if (document.getElementById("ch").checked) {
+      document.getElementById("inf").src =
+        "../../assets/Fichas/" + `${provimg[index]}`;
+      document.getElementById("imagenes").style.display = "block";
+    }
+  } else {
     index--;
-    for(var i=0; i<modelos.length; i++){
-      if(i == index){
+    for (var i = 0; i < modelos.length; i++) {
+      if (i == index) {
         document.querySelector(`#${provmod[i]}`).setAttribute("visible", true);
-      }else{
+      } else {
         document.querySelector(`#${provmod[i]}`).setAttribute("visible", false);
       }
-     }
-     document.getElementById("inf").src = "../../assets/Fichas/" + `${provimg[index]}`;
-    document.getElementById("imagenes").style.display = "block";
+    }
+    document.getElementById("inf").removeAttribute('src');
+    if (document.getElementById("ch").checked) {
+      document.getElementById("inf").src =
+        "../../assets/Fichas/" + `${provimg[index]}`;
+      document.getElementById("imagenes").style.display = "block";
+    }
   }
 }
 
