@@ -84,6 +84,7 @@ function siguiente() {
   } else {
     index++;
     for (var i = 0; i < modelos.length; i++) {
+        console.log(index);
       if (i == index) {
         document.querySelector(`#${provmod[i]}`).setAttribute("visible", true);
       } else {
