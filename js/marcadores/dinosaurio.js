@@ -20,7 +20,6 @@ let modtri;
 let modvelo;
 let modmega;
 
-
 function onQRCodeScanned(scannedText)
 {
 }
