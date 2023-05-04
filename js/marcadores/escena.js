@@ -5,8 +5,9 @@ export const tapPlaceComponent = {
       max: {default: 10},
     },
     init() {
+      console.log("Hola");
       const ground = document.getElementById('ground')
-      
+      alert("Hola");
       ground.addEventListener('click', (event) => {
         // Create new entity for the new object
         const newElement = document.createElement('a-entity')
