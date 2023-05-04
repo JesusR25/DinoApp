@@ -1,2 +1,2 @@
-import {tapPlaceComponent} from './tap-place'
+import {tapPlaceComponent} from './escena.js'
 AFRAME.registerComponent('tap-place', tapPlaceComponent)
