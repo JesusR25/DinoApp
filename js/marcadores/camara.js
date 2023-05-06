@@ -67,7 +67,7 @@ AFRAME.registerComponent('tap-place', {
         receive: false,
       })
 
-      newElement.setAttribute('gltf-model', '#tmod')
+      newElement.setAttribute('gltf-model', '#bramod')
       this.el.sceneEl.appendChild(newElement)
 
       newElement.addEventListener('model-loaded', () => {
