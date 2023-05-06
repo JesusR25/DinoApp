@@ -75,7 +75,7 @@ AFRAME.registerComponent('tap-place', {
         newElement.setAttribute('visible', 'true')
         newElement.setAttribute('animation', {
           property: 'scale',
-          to: '0.3 0.3 0.3',
+          to: '5 5 5',
           easing: 'easeOutElastic',
           dur: 800,
         })
