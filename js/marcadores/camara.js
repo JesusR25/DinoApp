@@ -67,7 +67,7 @@ AFRAME.registerComponent('tap-place', {
         receive: false,
       })
 
-      newElement.setAttribute('gltf-model', '#tri')
+      newElement.setAttribute('gltf-model', '#velo')
       this.el.sceneEl.appendChild(newElement)
 
       newElement.addEventListener('model-loaded', () => {
@@ -75,7 +75,7 @@ AFRAME.registerComponent('tap-place', {
         newElement.setAttribute('visible', 'true')
         newElement.setAttribute('animation', {
           property: 'scale',
-          to: '0.7 0.7 0.7',
+          to: '0.3 0.3 0.3',
           easing: 'easeOutElastic',
           dur: 800,
         })
