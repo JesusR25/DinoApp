@@ -24,8 +24,17 @@
                 <a-asset-item id="velo" src="../assets/Dinosaurios/velociraptor.glb"></a-asset-item>
             </a-assets>
             <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;"></a-camera>
-            <a-box id="ground" class="cantap" scale="1000 2 1000" position="0 -0.99 0" material="shader: shadow; transparent: true; opacity: 0.4" shadow>
-  </a-box>
+            <a-box id="ground" class="cantap" scale="1000 2 1000" position="0 -0.99 0" material="shader: shadow; transparent: true; opacity: 0.4" shadow></a-box>
         </a-scene>
+        <div id="botonesorigen" style='position: absolute; top: 2%; left: 1%; text-align: center; z-index: 2;'>
+            <button class="butt" id="btn1" onclick="tmod();">Tmod</button>
+            <button class="butt" id="btn2" onclick="bramod();">Bramod</button>
+            <button class="butt" id="btn3" onclick="dinod();">Dinod</button>
+            <button class="butt" id="btn4" onclick="pte();">Pte</button>
+            <button class="butt" id="btn5" onclick="megat();">Megat</button>
+            <button class="butt" id="btn6" onclick="mosa();">Mosa</button>
+            <button class="butt" id="btn7" onclick="tri();">Tri</button>
+            <button class="butt" id="btn8" onclick="velo();">Velo</button>
+        </div>
     </body>
 </html>
