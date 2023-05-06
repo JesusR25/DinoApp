@@ -67,7 +67,7 @@ AFRAME.registerComponent('tap-place', {
         receive: false,
       })
 
-      newElement.setAttribute('gltf-model', '#pte')
+      newElement.setAttribute('gltf-model', '#megat')
       this.el.sceneEl.appendChild(newElement)
 
       newElement.addEventListener('model-loaded', () => {
@@ -75,7 +75,7 @@ AFRAME.registerComponent('tap-place', {
         newElement.setAttribute('visible', 'true')
         newElement.setAttribute('animation', {
           property: 'scale',
-          to: '5 5 5',
+          to: '0.6 0.6 0.6',
           easing: 'easeOutElastic',
           dur: 800,
         })
