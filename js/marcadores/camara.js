@@ -1,5 +1,6 @@
 let activo = false;
 let modelo, escala;
+let mega = true;
 function onQRCodeScanned(scannedText)
 {
 }
