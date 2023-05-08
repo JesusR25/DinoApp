@@ -1,6 +1,13 @@
 let activo = false;
 let actmod = true;
 let modelo, escala;
+let brachi = true;
+let mesasa = true;
+let pterodactyl = true;
+let dinosaur = true;
+let trex = true;
+let triceratops = true;
+let velociraptor = true;
 let mega = true;
 let modmega;
 let modbrachi;
@@ -204,7 +211,7 @@ AFRAME.registerComponent("movtrex", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!trex) return;
             modtrex.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -213,25 +220,25 @@ AFRAME.registerComponent("movtrex", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!trex) return;
             this.isPanning = true
             modtrex.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!trex) return;
             this.isPanning = true
             modtrex.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!trex) return;
             xrot = true;
             modtrex.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!trex) return;
             xrot = true;
             modtrex.rotation.x += 4 * Math.PI / 360;
         })
@@ -241,26 +248,26 @@ AFRAME.registerComponent("movtrex", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!trex) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!trex) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!trex) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!trex) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(trex && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modtrex.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -294,7 +301,7 @@ AFRAME.registerComponent("movbra", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!brachi) return;
             modbrachi.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -303,25 +310,25 @@ AFRAME.registerComponent("movbra", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!brachi) return;
             this.isPanning = true
             modbrachi.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!brachi) return;
             this.isPanning = true
             modbrachi.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!brachi) return;
             xrot = true;
             modbrachi.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!brachi) return;
             xrot = true;
             modbrachi.rotation.x += 4 * Math.PI / 360;
         })
@@ -331,26 +338,26 @@ AFRAME.registerComponent("movbra", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!brachi) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!brachi) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!brachi) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!brachi) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(brachi && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modbrachi.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -384,7 +391,7 @@ AFRAME.registerComponent("movdino", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!dinosaur) return;
             moddino.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -393,25 +400,25 @@ AFRAME.registerComponent("movdino", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!dinosaur) return;
             this.isPanning = true
             moddino.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!dinosaur) return;
             this.isPanning = true
             moddino.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!dinosaur) return;
             xrot = true;
             moddino.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!dinosaur) return;
             xrot = true;
             moddino.rotation.x += 4 * Math.PI / 360;
         })
@@ -421,26 +428,26 @@ AFRAME.registerComponent("movdino", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!dinosaur) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!dinosaur) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!dinosaur) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!dinosaur) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(dinosaur && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           moddino.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -474,7 +481,7 @@ AFRAME.registerComponent("movpte", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             modpte.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -483,25 +490,25 @@ AFRAME.registerComponent("movpte", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             this.isPanning = true
             modpte.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             this.isPanning = true
             modpte.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             xrot = true;
             modpte.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             xrot = true;
             modpte.rotation.x += 4 * Math.PI / 360;
         })
@@ -511,26 +518,26 @@ AFRAME.registerComponent("movpte", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!pterodactyl) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(pterodactyl && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modpte.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -654,7 +661,7 @@ AFRAME.registerComponent("movmesasa", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!mesasa) return;
             modmesa.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -663,25 +670,25 @@ AFRAME.registerComponent("movmesasa", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!mesasa) return;
             this.isPanning = true
             modmesa.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!mesasa) return;
             this.isPanning = true
             modmesa.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!mesasa) return;
             xrot = true;
             modmesa.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!mesasa) return;
             xrot = true;
             modmesa.rotation.x += 4 * Math.PI / 360;
         })
@@ -691,26 +698,26 @@ AFRAME.registerComponent("movmesasa", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!mesasa) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!mesasa) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!mesasa) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!mesasa) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(mesasa && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modmesa.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -744,7 +751,7 @@ AFRAME.registerComponent("movtri", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!triceratops) return;
             modtri.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -753,25 +760,25 @@ AFRAME.registerComponent("movtri", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!triceratops) return;
             this.isPanning = true
             modtri.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!triceratops) return;
             this.isPanning = true
             modtri.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!triceratops) return;
             xrot = true;
             modtri.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!triceratops) return;
             xrot = true;
             modtri.rotation.x += 4 * Math.PI / 360;
         })
@@ -781,26 +788,26 @@ AFRAME.registerComponent("movtri", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!triceratops) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!triceratops) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!triceratops) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!triceratops) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(triceratops && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modtri.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -834,7 +841,7 @@ AFRAME.registerComponent("movvelo", {
             currentScale = this.mesh.scale.x;
         })
         hammertime.on("pinchmove", (ev) => {
-            if (!mega) return;
+            if (!velociraptor) return;
             modvelo.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
@@ -843,25 +850,25 @@ AFRAME.registerComponent("movvelo", {
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
-            if (!mega) return;
+            if (!velociraptor) return;
             this.isPanning = true
             modvelo.rotation.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
-            if (!mega) return;
+            if (!velociraptor) return;
             this.isPanning = true
             modvelo.rotation.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
-            if (!mega) return;
+            if (!velociraptor) return;
             xrot = true;
             modvelo.rotation.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
-            if (!mega) return;
+            if (!velociraptor) return;
             xrot = true;
             modvelo.rotation.x += 4 * Math.PI / 360;
         })
@@ -871,26 +878,26 @@ AFRAME.registerComponent("movvelo", {
         hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
   
         hammertime.on("swipeleft", ({ velocity }) => {
-            if (!mega) return;
+            if (!velociraptor) return;
             console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
-            if (!mega) return;
+            if (!velociraptor) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipeup", ({ velocity }) => {
-            if (!mega) return;
+            if (!velociraptor) return;
             this.swipeVelocity = velocity
         })
         hammertime.on("swipedown", ({ velocity }) => {
-            if (!mega) return;
+            if (!velociraptor) return;
             this.swipeVelocity = velocity
         })
       }
   },
   tick: function () {
-      if (!(mega && this.swipeVelocity && !this.isPanning)){
+      if (!(velociraptor && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
           modvelo.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
@@ -907,83 +914,91 @@ function componentes(modelo) {
   switch (modelo) {
     case 1:
       document.querySelector('a-scene').setAttribute('movtrex', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = true;
+      triceratops = false;
+      velociraptor = false;
+      mega = false;
       break;
     case 2:
       document.querySelector('a-scene').setAttribute('movbra', '');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = true;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = false;
+      triceratops = false;
+      velociraptor = false;
+      mega = false;
       break;
     case 3:
       document.querySelector('a-scene').setAttribute('movdino', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = true;
+      trex = false;
+      triceratops = false;
+      velociraptor = false;
+      mega = false;
       break;
     case 4:
       document.querySelector('a-scene').setAttribute('movpte', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = true;
+      dinosaur = false;
+      trex = false;
+      triceratops = false;
+      velociraptor = false;
+      mega = false;
       break;
     case 5:
       document.querySelector('a-scene').setAttribute('movmega', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = false;
+      triceratops = false;
+      velociraptor = false;
+      mega = true;
       break;
     case 6:
       document.querySelector('a-scene').setAttribute('movmesasa', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = true;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = false;
+      triceratops = false;
+      velociraptor = false;
+      mega = false;
       break;
     case 7:
       document.querySelector('a-scene').setAttribute('movtri', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtrex');
-      document.querySelector('a-scene').removeAttribute('movvelo');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = false;
+      triceratops = true;
+      velociraptor = false;
+      mega = false;
       break;
     case 8:
       document.querySelector('a-scene').setAttribute('movvelo', '');
-      document.querySelector('a-scene').removeAttribute('movbra');
-      document.querySelector('a-scene').removeAttribute('movdino');
-      document.querySelector('a-scene').removeAttribute('movpte');
-      document.querySelector('a-scene').removeAttribute('movmega');
-      document.querySelector('a-scene').removeAttribute('movmesasa');
-      document.querySelector('a-scene').removeAttribute('movtri');
-      document.querySelector('a-scene').removeAttribute('movtrex');
+      brachi = false;
+      mesasa = false;
+      pterodactyl = false;
+      dinosaur = false;
+      trex = false;
+      triceratops = false;
+      velociraptor = true;
+      mega = false;
       break;
   }
 }
