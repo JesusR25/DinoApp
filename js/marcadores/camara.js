@@ -127,6 +127,7 @@ AFRAME.registerComponent('tap-place', {
           dur: 800,
         })
       })
+      document.querySelector('a-scene').setAttribute('movimiento', '');
       activo = false;
       actmod = true;
       }
