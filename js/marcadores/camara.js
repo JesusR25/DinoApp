@@ -1,4 +1,5 @@
 let activo = false;
+let actmod = false;
 let modelo, escala;
 let mega = true;
 let modmega;
@@ -127,6 +128,7 @@ AFRAME.registerComponent('tap-place', {
         })
       })
       activo = false;
+      actmod = true;
       }
     })
   },
@@ -177,7 +179,7 @@ AFRAME.registerComponent("movimiento", {
   init: function () {
       // track markerFound/markerLost
       // grab the model reference
-      if(activo){
+      if(actmod){
         document.querySelector("#trex").addEventListener("model-loaded", evt => {
           modmega = evt.detail.model;
             this.mesh = evt.detail.model
