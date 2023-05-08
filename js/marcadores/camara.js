@@ -90,41 +90,49 @@ AFRAME.registerComponent('tap-place', {
         case 1:
           newElement.setAttribute('id', 'trex')
           newElement.setAttribute('gltf-model', '#tmod')
+          newElement.setAttribute('animation-mixer', '')
           escala = '7 7 7'
           break;
         case 2:
           newElement.setAttribute('id', 'brachi')
           newElement.setAttribute('gltf-model', '#bramod')
+          newElement.setAttribute('animation-mixer', '')
           escala = '0.040 0.040 0.040'
           break;
         case 3:
           newElement.setAttribute('id', 'dinosaur')
           newElement.setAttribute('gltf-model', '#dinod')
+          newElement.setAttribute('animation-mixer', '')
           escala = '0.010 0.010 0.010'
           break;
         case 4:
           newElement.setAttribute('id', 'ptero')
           newElement.setAttribute('gltf-model', '#pte')
+          newElement.setAttribute('animation-mixer', 'clip: flying')
           escala = '5 5 5'
           break;
         case 5:
           newElement.setAttribute('id', 'mega')
           newElement.setAttribute('gltf-model', '#megat')
+          newElement.setAttribute('animation-mixer', 'clip: swimming_skeletal.3')
           escala = '0.6 0.6 0.6'
           break;
         case 6:
           newElement.setAttribute('id', 'mesasa')
           newElement.setAttribute('gltf-model', '#mosa')
+          newElement.setAttribute('animation-mixer', '')
           escala = '0.037 0.037 0.037'
           break;
         case 7:
           newElement.setAttribute('id', 'triceratops')
           newElement.setAttribute('gltf-model', '#tri')
+          newElement.setAttribute('animation-mixer', '')
           escala = '0.7 0.7 0.7'
           break;
         case 8:
           newElement.setAttribute('id', 'velociraptor')
           newElement.setAttribute('gltf-model', '#velo')
+          newElement.setAttribute('animation-mixer', '')
           escala = '5 5 5'
           break;
       }
