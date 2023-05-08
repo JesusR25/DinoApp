@@ -1,5 +1,5 @@
 let activo = false;
-let actmod = false;
+let actmod = true;
 let modelo, escala;
 let mega = true;
 let modmega;
