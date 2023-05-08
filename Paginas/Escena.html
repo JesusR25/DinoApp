@@ -10,7 +10,7 @@
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
     </head>
     <body>
-
+        
         <div class="qrscanner" id="scanner"></div>
         <a-scene renderer="colorManagement: true" tap-place>
             <a-assets>
@@ -25,7 +25,7 @@
                 <a-asset-item id="velo" src="../assets/Dinosaurios/velociraptor.glb"></a-asset-item>
             </a-assets>
 
-            <a-camera id="camera" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" look-controls="mouseEnabled: false; touchEnabled: false;"></a-camera>
+            <a-camera id="camera" position="0 5 8" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" look-controls="mouseEnabled: false; touchEnabled: false;"></a-camera>
             <a-box id="ground" class="cantap" scale="1000 2 1000" position="0 -0.99 0" material="shader: shadow; transparent: true; opacity: 0.4" shadow></a-box>
         </a-scene>
         <div id="botonesorigen" style='position: absolute; top: 2%; left: 1%; text-align: center; z-index: 2;'>
