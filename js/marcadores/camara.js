@@ -222,25 +222,25 @@ AFRAME.registerComponent("movtrex", {
         hammertime.on("panleft", () => {
             if (!trex) return;
             this.isPanning = true
-            modtrex.rotation.y -= 4 * Math.PI / 360;
+            modtrex.position.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!trex) return;
             this.isPanning = true
-            modtrex.rotation.y += 4 * Math.PI / 360;
+            modtrex.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!trex) return;
             xrot = true;
-            modtrex.rotation.x -= 4 * Math.PI / 360;
+            modtrex.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!trex) return;
             xrot = true;
-            modtrex.rotation.x += 4 * Math.PI / 360;
+            modtrex.position.x += 4 * Math.PI / 360;
         })
   
   
@@ -270,7 +270,7 @@ AFRAME.registerComponent("movtrex", {
       if (!(trex && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modtrex.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          modtrex.position.y += this.swipeVelocity * 4 * Math.PI / 360;
           //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
