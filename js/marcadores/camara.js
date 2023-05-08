@@ -492,13 +492,13 @@ AFRAME.registerComponent("movpte", {
         hammertime.on("panleft", () => {
             if (!pterodactyl) return;
             this.isPanning = true
-            modpte.position.x += 4 * Math.PI / 360;
+            modpte.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!pterodactyl) return;
             this.isPanning = true
-            modpte.position.x -= 4 * Math.PI / 360;
+            modpte.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
