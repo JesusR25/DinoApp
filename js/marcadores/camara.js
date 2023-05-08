@@ -222,25 +222,25 @@ AFRAME.registerComponent("movtrex", {
         hammertime.on("panleft", () => {
             if (!trex) return;
             this.isPanning = true
-            modtrex.position.y -= 4 * Math.PI / 360;
+            modtrex.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!trex) return;
             this.isPanning = true
-            modtrex.position.y += 4 * Math.PI / 360;
+            modtrex.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!trex) return;
             xrot = true;
-            modtrex.position.x -= 4 * Math.PI / 360;
+            modtrex.position.y -= 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!trex) return;
             xrot = true;
-            modtrex.position.x += 4 * Math.PI / 360;
+            modtrex.position.y += 4 * Math.PI / 360;
         })
   
   
