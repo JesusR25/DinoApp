@@ -3,6 +3,13 @@ let actmod = true;
 let modelo, escala;
 let mega = true;
 let modmega;
+let modbrachi;
+let modmesa;
+let modpte;
+let moddino;
+let modtrex;
+let modtri;
+let modvelo;
 function onQRCodeScanned(scannedText)
 {
 }
@@ -127,7 +134,7 @@ AFRAME.registerComponent('tap-place', {
           dur: 800,
         })
       })
-      document.querySelector('a-scene').setAttribute('movimiento', '');
+      componentes(modelo);
       activo = false;
       actmod = true;
       }
@@ -176,13 +183,373 @@ function velo(){
 }
 
 //Controlador para movimientos
-AFRAME.registerComponent("movimiento", {
+AFRAME.registerComponent("movtrex", {
   init: function () {
       // track markerFound/markerLost
       // grab the model reference
       console.log("Movimiento");
       if(actmod){
         document.querySelector("#trex").addEventListener("model-loaded", evt => {
+          modtrex = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modtrex.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modtrex.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modtrex.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modtrex.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modtrex.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modtrex.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos brachiosaurus
+AFRAME.registerComponent("movbra", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#brachi").addEventListener("model-loaded", evt => {
+          modbrachi = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modbrachi.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modbrachi.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modbrachi.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modbrachi.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modbrachi.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modbrachi.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos dinosaur
+AFRAME.registerComponent("movdino", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#dinosaur").addEventListener("model-loaded", evt => {
+          moddino = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            moddino.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            moddino.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            moddino.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            moddino.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            moddino.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          moddino.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos pterodactyl
+AFRAME.registerComponent("movpte", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#ptero").addEventListener("model-loaded", evt => {
+          modpte = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modpte.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modpte.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modpte.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modpte.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modpte.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modpte.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos mega
+AFRAME.registerComponent("movmega", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#mega").addEventListener("model-loaded", evt => {
           modmega = evt.detail.model;
             this.mesh = evt.detail.model
         })
@@ -265,3 +632,358 @@ AFRAME.registerComponent("movimiento", {
       
   }
 })
+
+//Controlador para movimientos mesasa
+AFRAME.registerComponent("movmesasa", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#mesasa").addEventListener("model-loaded", evt => {
+          modmesa = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modmesa.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modmesa.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modmesa.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modmesa.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modmesa.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modmesa.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos triceratops
+AFRAME.registerComponent("movtri", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#triceratops").addEventListener("model-loaded", evt => {
+          modtri = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modtri.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modtri.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modtri.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modtri.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modtri.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modtri.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+//Controlador para movimientos velociraptor
+AFRAME.registerComponent("movvelo", {
+  init: function () {
+      // track markerFound/markerLost
+      // grab the model reference
+      if(actmod){
+        document.querySelector("#velociraptor").addEventListener("model-loaded", evt => {
+          modvelo = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modvelo.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modvelo.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modvelo.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modvelo.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modvelo.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            console.log("swipeeee");
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
+  },
+  tick: function () {
+      if (!(mega && this.swipeVelocity && !this.isPanning)){
+          return;
+      }else{
+          modvelo.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          this.swipeVelocity *= 0.93;
+          if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
+      }
+      
+      
+  }
+})
+
+function componentes(modelo) {
+  switch (modelo) {
+    case 1:
+      document.querySelector('a-scene').setAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 2:
+      document.querySelector('a-scene').setAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 3:
+      document.querySelector('a-scene').setAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 4:
+      document.querySelector('a-scene').setAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 5:
+      document.querySelector('a-scene').setAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 6:
+      document.querySelector('a-scene').setAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 7:
+      document.querySelector('a-scene').setAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      document.querySelector('a-scene').removeAttribute('movvelo', '');
+      break;
+    case 8:
+      document.querySelector('a-scene').setAttribute('movvelo', '');
+      document.querySelector('a-scene').removeAttribute('movbra', '');
+      document.querySelector('a-scene').removeAttribute('movdino', '');
+      document.querySelector('a-scene').removeAttribute('movpte', '');
+      document.querySelector('a-scene').removeAttribute('movmega', '');
+      document.querySelector('a-scene').removeAttribute('movmesasa', '');
+      document.querySelector('a-scene').removeAttribute('movtri', '');
+      document.querySelector('a-scene').removeAttribute('movtrex', '');
+      break;
+  }
+}
