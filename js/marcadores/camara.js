@@ -312,25 +312,25 @@ AFRAME.registerComponent("movbra", {
         hammertime.on("panleft", () => {
             if (!brachi) return;
             this.isPanning = true
-            modbrachi.rotation.y -= 4 * Math.PI / 360;
+            modbrachi.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!brachi) return;
             this.isPanning = true
-            modbrachi.rotation.y += 4 * Math.PI / 360;
+            modbrachi.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!brachi) return;
             xrot = true;
-            modbrachi.rotation.x -= 4 * Math.PI / 360;
+            modbrachi.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!brachi) return;
             xrot = true;
-            modbrachi.rotation.x += 4 * Math.PI / 360;
+            modbrachi.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -360,8 +360,8 @@ AFRAME.registerComponent("movbra", {
       if (!(brachi && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modbrachi.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          modbrachi.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -395,32 +395,32 @@ AFRAME.registerComponent("movdino", {
             moddino.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
-        // pan left/right for rotation
+        // position
+        // pan left/right for position
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.rotation.y -= 4 * Math.PI / 360;
+            moddino.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.rotation.y += 4 * Math.PI / 360;
+            moddino.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.rotation.x -= 4 * Math.PI / 360;
+            moddino.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.rotation.x += 4 * Math.PI / 360;
+            moddino.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -450,8 +450,8 @@ AFRAME.registerComponent("movdino", {
       if (!(dinosaur && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          moddino.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          moddino.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -485,32 +485,32 @@ AFRAME.registerComponent("movpte", {
             modpte.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
-        // pan left/right for rotation
+        // position
+        // pan left/right for position
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!pterodactyl) return;
             this.isPanning = true
-            modpte.rotation.y -= 4 * Math.PI / 360;
+            modpte.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!pterodactyl) return;
             this.isPanning = true
-            modpte.rotation.y += 4 * Math.PI / 360;
+            modpte.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!pterodactyl) return;
             xrot = true;
-            modpte.rotation.x -= 4 * Math.PI / 360;
+            modpte.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!pterodactyl) return;
             xrot = true;
-            modpte.rotation.x += 4 * Math.PI / 360;
+            modpte.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -540,8 +540,8 @@ AFRAME.registerComponent("movpte", {
       if (!(pterodactyl && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modpte.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          modpte.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -575,32 +575,32 @@ AFRAME.registerComponent("movmega", {
             modmega.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
-        // pan left/right for rotation
+        // position
+        // pan left/right for position
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!mega) return;
             this.isPanning = true
-            modmega.rotation.y -= 4 * Math.PI / 360;
+            modmega.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!mega) return;
             this.isPanning = true
-            modmega.rotation.y += 4 * Math.PI / 360;
+            modmega.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!mega) return;
             xrot = true;
-            modmega.rotation.x -= 4 * Math.PI / 360;
+            modmega.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!mega) return;
             xrot = true;
-            modmega.rotation.x += 4 * Math.PI / 360;
+            modmega.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -630,8 +630,8 @@ AFRAME.registerComponent("movmega", {
       if (!(mega && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modmega.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          modmega.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -665,32 +665,32 @@ AFRAME.registerComponent("movmesasa", {
             modmesa.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
-        // pan left/right for rotation
+        // position
+        // pan left/right for position
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!mesasa) return;
             this.isPanning = true
-            modmesa.rotation.y -= 4 * Math.PI / 360;
+            modmesa.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!mesasa) return;
             this.isPanning = true
-            modmesa.rotation.y += 4 * Math.PI / 360;
+            modmesa.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!mesasa) return;
             xrot = true;
-            modmesa.rotation.x -= 4 * Math.PI / 360;
+            modmesa.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!mesasa) return;
             xrot = true;
-            modmesa.rotation.x += 4 * Math.PI / 360;
+            modmesa.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -720,8 +720,8 @@ AFRAME.registerComponent("movmesasa", {
       if (!(mesasa && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modmesa.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          modmesa.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -755,32 +755,32 @@ AFRAME.registerComponent("movtri", {
             modtri.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
-        // pan left/right for rotation
+        // position
+        // pan left/right for position
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!triceratops) return;
             this.isPanning = true
-            modtri.rotation.y -= 4 * Math.PI / 360;
+            modtri.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!triceratops) return;
             this.isPanning = true
-            modtri.rotation.y += 4 * Math.PI / 360;
+            modtri.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!triceratops) return;
             xrot = true;
-            modtri.rotation.x -= 4 * Math.PI / 360;
+            modtri.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!triceratops) return;
             xrot = true;
-            modtri.rotation.x += 4 * Math.PI / 360;
+            modtri.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -810,8 +810,8 @@ AFRAME.registerComponent("movtri", {
       if (!(triceratops && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modtri.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
-          //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
+          modtri.position.y += this.swipeVelocity * 4 * Math.PI / 360;
+          //this.mesh.position.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
       }
@@ -845,32 +845,32 @@ AFRAME.registerComponent("movvelo", {
             modvelo.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
         });
   
-        // rotation
+        // position
         // pan left/right for rotation
         this.isPanning = false;
         var xrot = false;
         hammertime.on("panleft", () => {
             if (!velociraptor) return;
             this.isPanning = true
-            modvelo.rotation.y -= 4 * Math.PI / 360;
+            modvelo.position.x += 4 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!velociraptor) return;
             this.isPanning = true
-            modvelo.rotation.y += 4 * Math.PI / 360;
+            modvelo.position.x -= 4 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!velociraptor) return;
             xrot = true;
-            modvelo.rotation.x -= 4 * Math.PI / 360;
+            modvelo.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!velociraptor) return;
             xrot = true;
-            modvelo.rotation.x += 4 * Math.PI / 360;
+            modvelo.position.y -= 4 * Math.PI / 360;
         })
   
   
@@ -900,7 +900,7 @@ AFRAME.registerComponent("movvelo", {
       if (!(velociraptor && this.swipeVelocity && !this.isPanning)){
           return;
       }else{
-          modvelo.rotation.y += this.swipeVelocity * 4 * Math.PI / 360;
+          modvelo.position.y += this.swipeVelocity * 4 * Math.PI / 360;
           //this.mesh.rotation.x += this.swipeVelocity * 4 * Math.PI / 360;
           this.swipeVelocity *= 0.93;
           if (Math.abs(this.swipeVelocity) <= 0.1) this.swipeVelocity = 0;
