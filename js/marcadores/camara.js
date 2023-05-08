@@ -65,7 +65,6 @@ AFRAME.registerComponent('tap-place', {
       const randomYRotation = Math.random() * 360
       newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
 
-      newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')
 
       newElement.setAttribute('shadow', {
@@ -74,48 +73,32 @@ AFRAME.registerComponent('tap-place', {
 
       switch(modelo){
         case 1:
-          newElement.setAttribute('gltf-model', '#tmod')
           escala = '7 7 7'
           break;
         case 2:
-          newElement.setAttribute('id', 'brachi')
-          newElement.setAttribute('gltf-model', '#bramod')
           escala = '0.040 0.040 0.040'
           break;
         case 3:
-          newElement.setAttribute('id', 'dinosaur')
-          newElement.setAttribute('gltf-model', '#dinod')
           escala = '0.010 0.010 0.010'
           break;
         case 4:
-          newElement.setAttribute('id', 'ptero')
-          newElement.setAttribute('gltf-model', '#pte')
           escala = '5 5 5'
           break;
         case 5:
-          newElement.setAttribute('id', 'mega')
-          newElement.setAttribute('gltf-model', '#megat')
           escala = '0.6 0.6 0.6'
           break;
         case 6:
-          newElement.setAttribute('id', 'mesasa')
-          newElement.setAttribute('gltf-model', '#mosa')
           escala = '0.037 0.037 0.037'
           break;
         case 7:
-          newElement.setAttribute('id', 'triceratops')
-          newElement.setAttribute('gltf-model', '#tri')
           escala = '0.7 0.7 0.7'
           break;
         case 8:
-          newElement.setAttribute('id', 'velociraptor')
-          newElement.setAttribute('gltf-model', '#velo')
           escala = '5 5 5'
           break;
       }
 
       newElement.addEventListener('model-loaded', () => {
-        console.log("Cargado")
         // Once the model is loaded, we are ready to show it popping in using an animation
         newElement.setAttribute('visible', 'true')
         newElement.setAttribute('animation', {
