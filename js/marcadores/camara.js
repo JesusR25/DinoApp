@@ -179,7 +179,9 @@ AFRAME.registerComponent("movimiento", {
   init: function () {
       // track markerFound/markerLost
       // grab the model reference
+      console.log("Movimiento");
       if(actmod){
+        console.log("Variasble activada");
         document.querySelector("#trex").addEventListener("model-loaded", evt => {
           modmega = evt.detail.model;
             this.mesh = evt.detail.model
@@ -233,6 +235,7 @@ AFRAME.registerComponent("movimiento", {
   
         hammertime.on("swipeleft", ({ velocity }) => {
             if (!mega) return;
+            console.log("swipeeee");
             this.swipeVelocity = velocity
         })
         hammertime.on("swiperight", ({ velocity }) => {
