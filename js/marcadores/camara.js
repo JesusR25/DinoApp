@@ -183,10 +183,56 @@ AFRAME.registerComponent("movimiento", {
       console.log("Movimiento");
       if(actmod){
         console.log("Variasble activada");
-        document.querySelector("#trex").addEventListener("model-loaded", evt => {
-          modmega = evt.detail.model;
-            this.mesh = evt.detail.model
-        })
+        switch(modelo){
+          case 1:
+            document.querySelector("#trex").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 2:
+            document.querySelector("#bramod").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 3:
+            document.querySelector("#dinosaur").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 4:
+            document.querySelector("#ptero").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 5:
+            document.querySelector("#megat").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 6:
+            document.querySelector("#mosa").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 7:
+            document.querySelector("#triceratops").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+          case 8:
+            document.querySelector("#velociraptor").addEventListener("model-loaded", evt => {
+              modmega = evt.detail.model;
+                this.mesh = evt.detail.model
+            })
+            break;
+        }
         // hammerjs input helper
         const hammertime = new Hammer(document.body);
   
