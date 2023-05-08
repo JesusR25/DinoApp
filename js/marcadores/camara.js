@@ -103,7 +103,7 @@ AFRAME.registerComponent('tap-place', {
           newElement.setAttribute('id', 'dinosaur')
           newElement.setAttribute('gltf-model', '#dinod')
           newElement.setAttribute('animation-mixer', '')
-          escala = '0.010 0.010 0.010'
+          escala = '0.020 0.020 0.020'
           break;
         case 4:
           newElement.setAttribute('id', 'ptero')
@@ -410,25 +410,25 @@ AFRAME.registerComponent("movdino", {
         hammertime.on("panleft", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.position.x += 4 * Math.PI / 360;
+            moddino.position.x += 120 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.position.x -= 4 * Math.PI / 360;
+            moddino.position.x -= 120 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.position.y += 4 * Math.PI / 360;
+            moddino.position.y += 120 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.position.y -= 4 * Math.PI / 360;
+            moddino.position.y -= 120 * Math.PI / 360;
         })
   
   
