@@ -23,6 +23,9 @@
                 <a-asset-item id="tri" src="../assets/Dinosaurios/triceratops.glb"></a-asset-item>
                 <a-asset-item id="velo" src="../assets/Dinosaurios/velociraptor.glb"></a-asset-item>
             </a-assets>
+
+            <a-entity id="trex" visible="false" gltf-model="#tmod" animation-mixer></a-entity>
+
             <a-camera id="camera" position="0 8 8" raycaster="objects: .cantap" cursor="fuse: false; rayOrigin: mouse;" look-controls="mouseEnabled: false; touchEnabled: false;"></a-camera>
             <a-box id="ground" class="cantap" scale="1000 2 1000" position="0 -0.99 0" material="shader: shadow; transparent: true; opacity: 0.4" shadow></a-box>
         </a-scene>

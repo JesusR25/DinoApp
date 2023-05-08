@@ -56,7 +56,7 @@ AFRAME.registerComponent('tap-place', {
     ground.addEventListener('click', (event) => {
       if(activo){
         // Create new entity for the new object
-      const newElement = document.createElement('a-entity')
+      const newElement = document.querySelector("#trex");
 
       // The raycaster gives a location of the touch in the scene
       const touchPoint = event.detail.intersection.point
@@ -74,7 +74,6 @@ AFRAME.registerComponent('tap-place', {
 
       switch(modelo){
         case 1:
-          newElement.setAttribute('id', 'trex')
           newElement.setAttribute('gltf-model', '#tmod')
           escala = '7 7 7'
           break;
@@ -114,8 +113,6 @@ AFRAME.registerComponent('tap-place', {
           escala = '5 5 5'
           break;
       }
-
-      this.el.sceneEl.appendChild(newElement)
 
       newElement.addEventListener('model-loaded', () => {
         // Once the model is loaded, we are ready to show it popping in using an animation
