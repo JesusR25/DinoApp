@@ -864,13 +864,13 @@ AFRAME.registerComponent("movvelo", {
         hammertime.on("panup", () => {
             if (!velociraptor) return;
             xrot = true;
-            modvelo.position.y -= 4 * Math.PI / 360;
+            modvelo.position.y += 4 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!velociraptor) return;
             xrot = true;
-            modvelo.position.y += 4 * Math.PI / 360;
+            modvelo.position.y -= 4 * Math.PI / 360;
         })
   
   
