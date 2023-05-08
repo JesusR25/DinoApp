@@ -332,13 +332,13 @@ AFRAME.registerComponent("movbra", {
         hammertime.on("panup", () => {
             if (!brachi) return;
             xrot = true;
-            modbrachi.position.y += 4 * Math.PI / 360;
+            modbrachi.position.y += 100 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!brachi) return;
             xrot = true;
-            modbrachi.position.y -= 4 * Math.PI / 360;
+            modbrachi.position.y -= 100 * Math.PI / 360;
         })
   
   
