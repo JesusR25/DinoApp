@@ -73,34 +73,42 @@ AFRAME.registerComponent('tap-place', {
 
       switch(modelo){
         case 1:
+          newElement.setAttribute('id', 'trex')
           newElement.setAttribute('gltf-model', '#tmod')
           escala = '7 7 7'
           break;
         case 2:
+          newElement.setAttribute('id', 'brachi')
           newElement.setAttribute('gltf-model', '#bramod')
           escala = '0.040 0.040 0.040'
           break;
         case 3:
+          newElement.setAttribute('id', 'dinosaur')
           newElement.setAttribute('gltf-model', '#dinod')
           escala = '0.010 0.010 0.010'
           break;
         case 4:
+          newElement.setAttribute('id', 'ptero')
           newElement.setAttribute('gltf-model', '#pte')
           escala = '5 5 5'
           break;
         case 5:
+          newElement.setAttribute('id', 'mega')
           newElement.setAttribute('gltf-model', '#megat')
           escala = '0.6 0.6 0.6'
           break;
         case 6:
+          newElement.setAttribute('id', 'mesasa')
           newElement.setAttribute('gltf-model', '#mosa')
           escala = '0.037 0.037 0.037'
           break;
         case 7:
+          newElement.setAttribute('id', 'triceratops')
           newElement.setAttribute('gltf-model', '#tri')
           escala = '0.7 0.7 0.7'
           break;
         case 8:
+          newElement.setAttribute('id', 'velociraptor')
           newElement.setAttribute('gltf-model', '#velo')
           escala = '5 5 5'
           break;
@@ -169,73 +177,75 @@ AFRAME.registerComponent("movimiento", {
   init: function () {
       // track markerFound/markerLost
       // grab the model reference
-      document.querySelector("#tmod").addEventListener("model-loaded", evt => {
-        modmega = evt.detail.model;
-          this.mesh = evt.detail.model
-      })
-      // hammerjs input helper
-      const hammertime = new Hammer(document.body);
-
-      // scale
-      // scale is tricky, because it resets
-      var currentScale = 1;
-      hammertime.get('pinch').set({ enable: true });
-      hammertime.on("pinchstart", (ev) => {
-          currentScale = this.mesh.scale.x;
-      })
-      hammertime.on("pinchmove", (ev) => {
-          if (!mega) return;
-          modmega.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
-      });
-
-      // rotation
-      // pan left/right for rotation
-      this.isPanning = false;
-      var xrot = false;
-      hammertime.on("panleft", () => {
-          if (!mega) return;
-          this.isPanning = true
-          modmega.rotation.y -= 4 * Math.PI / 360;
-      })
-
-      hammertime.on("panright", () => {
-          if (!mega) return;
-          this.isPanning = true
-          modmega.rotation.y += 4 * Math.PI / 360;
-      })
-
-      hammertime.on("panup", () => {
-          if (!mega) return;
-          xrot = true;
-          modmega.rotation.x -= 4 * Math.PI / 360;
-      })
-
-      hammertime.on("pandown", () => {
-          if (!mega) return;
-          xrot = true;
-          modmega.rotation.x += 4 * Math.PI / 360;
-      })
-
-
-      hammertime.on("panend", () => this.isPanning = false, xrot = false)
-      hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
-
-      hammertime.on("swipeleft", ({ velocity }) => {
-          if (!mega) return;
-          this.swipeVelocity = velocity
-      })
-      hammertime.on("swiperight", ({ velocity }) => {
-          if (!mega) return;
-          this.swipeVelocity = velocity
-      })
-      hammertime.on("swipeup", ({ velocity }) => {
-          if (!mega) return;
-          this.swipeVelocity = velocity
-      })
-      hammertime.on("swipedown", ({ velocity }) => {
-          if (!mega) return;
-          this.swipeVelocity = velocity
-      })
+      if(activo){
+        document.querySelector("#trex").addEventListener("model-loaded", evt => {
+          modmega = evt.detail.model;
+            this.mesh = evt.detail.model
+        })
+        // hammerjs input helper
+        const hammertime = new Hammer(document.body);
+  
+        // scale
+        // scale is tricky, because it resets
+        var currentScale = 1;
+        hammertime.get('pinch').set({ enable: true });
+        hammertime.on("pinchstart", (ev) => {
+            currentScale = this.mesh.scale.x;
+        })
+        hammertime.on("pinchmove", (ev) => {
+            if (!mega) return;
+            modmega.scale.multiplyScalar(0).addScalar(ev.scale * currentScale);
+        });
+  
+        // rotation
+        // pan left/right for rotation
+        this.isPanning = false;
+        var xrot = false;
+        hammertime.on("panleft", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modmega.rotation.y -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panright", () => {
+            if (!mega) return;
+            this.isPanning = true
+            modmega.rotation.y += 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("panup", () => {
+            if (!mega) return;
+            xrot = true;
+            modmega.rotation.x -= 4 * Math.PI / 360;
+        })
+  
+        hammertime.on("pandown", () => {
+            if (!mega) return;
+            xrot = true;
+            modmega.rotation.x += 4 * Math.PI / 360;
+        })
+  
+  
+        hammertime.on("panend", () => this.isPanning = false, xrot = false)
+        hammertime.on("pancancel", () => this.isPanning = false, xrot = false)
+  
+        hammertime.on("swipeleft", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swiperight", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipeup", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+        hammertime.on("swipedown", ({ velocity }) => {
+            if (!mega) return;
+            this.swipeVelocity = velocity
+        })
+      }
   },
   tick: function () {
       if (!(mega && this.swipeVelocity && !this.isPanning)){
