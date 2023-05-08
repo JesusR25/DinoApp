@@ -115,6 +115,7 @@ AFRAME.registerComponent('tap-place', {
       }
 
       newElement.addEventListener('model-loaded', () => {
+        console.log("Cargado")
         // Once the model is loaded, we are ready to show it popping in using an animation
         newElement.setAttribute('visible', 'true')
         newElement.setAttribute('animation', {
