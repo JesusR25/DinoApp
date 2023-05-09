@@ -1020,7 +1020,7 @@ function componentes(modelo) {
 }
 
 function f(){
-    html2canvas(document.querySelector("#contenedorC")).then(canvas => {
+    html2canvas(document.querySelector("#cuerpo")).then(canvas => {
         return Canvas2Image.saveAsImage(canvas, null, null, "png", "img");
     });
 }
