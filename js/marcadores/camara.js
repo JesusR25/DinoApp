@@ -127,7 +127,7 @@ AFRAME.registerComponent('tap-place', {
           newElement.setAttribute('gltf-model', '#mosa')
           newElement.setAttribute('animation-mixer', '')
           newElement.setAttribute('rotation', `0 -25 0`)
-          escala = '0.030 0.030 0.030'
+          escala = '0.020 0.020 0.020'
           break;
         case 7:
           newElement.setAttribute('id', 'triceratops')
