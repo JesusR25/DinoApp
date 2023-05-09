@@ -770,25 +770,25 @@ AFRAME.registerComponent("movtri", {
         hammertime.on("panleft", () => {
             if (!triceratops) return;
             this.isPanning = true
-            modtri.position.x += 4 * Math.PI / 360;
+            modtri.position.x += 10 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!triceratops) return;
             this.isPanning = true
-            modtri.position.x -= 4 * Math.PI / 360;
+            modtri.position.x -= 10 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!triceratops) return;
             xrot = true;
-            modtri.position.y += 4 * Math.PI / 360;
+            modtri.position.y += 10 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!triceratops) return;
             xrot = true;
-            modtri.position.y -= 4 * Math.PI / 360;
+            modtri.position.y -= 10 * Math.PI / 360;
         })
   
   
