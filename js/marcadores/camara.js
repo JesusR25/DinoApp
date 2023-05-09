@@ -1018,3 +1018,9 @@ function componentes(modelo) {
       break;
   }
 }
+
+function f(){
+    html2canvas(document.querySelector("#contenedorC")).then(canvas => {
+        return Canvas2Image.saveAsImage(canvas, null, null, "png", "img");
+    });
+}

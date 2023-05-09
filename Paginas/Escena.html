@@ -8,8 +8,10 @@
         <script type="text/javascript" src="../js/jsqrscanner.nocache.js"></script>
         <script type="text/javascript" src="../js/marcadores/camara.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+        <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
     </head>
-    <body>
+    <body id="cuerpo">
         
         <div class="qrscanner" id="scanner"></div>
         <a-scene renderer="colorManagement: true" tap-place>
@@ -37,6 +39,7 @@
             <button class="butt" id="btn6" onclick="mosa();">Mosa</button>
             <button class="butt" id="btn7" onclick="tri();">Tri</button>
             <button class="butt" id="btn8" onclick="velo();">Velo</button>
+            <button class="butt" id="btn9" onclick="f();">Captura</button>
         </div>
     </body>
 </html>
