@@ -5,6 +5,8 @@ canvas.width = 480;
 canvas.height = 360;
 
 function captura() {
+    let mediaStream = navigator.mediaDevices.getDisplayMedia({video:true});
+    video.srcObject = mediaStream;
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
@@ -24,5 +26,3 @@ function handleSuccess(stream) {
 function handleError(error) {
   console.log('navigator.MediaDevices.getUserMedia error: ', error.message, error.name);
 }
-
-navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
