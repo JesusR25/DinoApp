@@ -410,25 +410,25 @@ AFRAME.registerComponent("movdino", {
         hammertime.on("panleft", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.position.x += 250 * Math.PI / 360;
+            moddino.position.x += 300 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!dinosaur) return;
             this.isPanning = true
-            moddino.position.x -= 250 * Math.PI / 360;
+            moddino.position.x -= 300 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.position.y += 250 * Math.PI / 360;
+            moddino.position.y += 300 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!dinosaur) return;
             xrot = true;
-            moddino.position.y -= 250 * Math.PI / 360;
+            moddino.position.y -= 300 * Math.PI / 360;
         })
   
   
