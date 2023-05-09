@@ -5,6 +5,7 @@ canvas.width = 480;
 canvas.height = 360;
 
 function captura() {
+    navigator.mediaDevices.getUserMedia(constraints).then(handleSuccess).catch(handleError);
     let mediaStream = navigator.mediaDevices.getDisplayMedia({video:true});
     video.srcObject = mediaStream;
     canvas.width = video.videoWidth;
