@@ -17,7 +17,10 @@ function captura(){
 	aScene = resizeCanvas(aScene, frame.width, frame.height);
 	frame = frame.dataUri;
 	mergeImages([frame, aScene]).then(b64 => {
-        return Canvas2Image.saveAsImage(b64, null, null, "png", "img");
+		let link = document.getElementById("download-link", "png");
+		link.setAttribute("download", "AR.png");
+		link.setAttribute("href", b64);
+		link.click();
 	});
 }
 
