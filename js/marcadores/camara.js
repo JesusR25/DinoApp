@@ -76,8 +76,8 @@ AFRAME.registerComponent('tap-place', {
       const touchPoint = event.detail.intersection.point
       newElement.setAttribute('position', touchPoint)
 
-      const randomYRotation = Math.random() * 360
-      newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
+      //const randomYRotation = Math.random() * 360
+      //newElement.setAttribute('rotation', `0 ${randomYRotation} 0`)
 
       newElement.setAttribute('visible', 'false')
       newElement.setAttribute('scale', '0.0001 0.0001 0.0001')
@@ -91,48 +91,56 @@ AFRAME.registerComponent('tap-place', {
           newElement.setAttribute('id', 'trex')
           newElement.setAttribute('gltf-model', '#tmod')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 0 0`)
           escala = '7 7 7'
           break;
         case 2:
           newElement.setAttribute('id', 'brachi')
           newElement.setAttribute('gltf-model', '#bramod')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 45 0`)
           escala = '0.040 0.040 0.040'
           break;
         case 3:
           newElement.setAttribute('id', 'dinosaur')
           newElement.setAttribute('gltf-model', '#dinod')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 25 0`)
           escala = '0.020 0.020 0.020'
           break;
         case 4:
           newElement.setAttribute('id', 'ptero')
           newElement.setAttribute('gltf-model', '#pte')
           newElement.setAttribute('animation-mixer', 'clip: flying')
+          newElement.setAttribute('rotation', `0 30 0`)
           escala = '5 5 5'
           break;
         case 5:
           newElement.setAttribute('id', 'mega')
           newElement.setAttribute('gltf-model', '#megat')
           newElement.setAttribute('animation-mixer', 'clip: swimming_skeletal.3')
+          newElement.setAttribute('rotation', `0 -20 0`)
           escala = '0.6 0.6 0.6'
           break;
         case 6:
           newElement.setAttribute('id', 'mesasa')
           newElement.setAttribute('gltf-model', '#mosa')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 -25 0`)
           escala = '0.037 0.037 0.037'
           break;
         case 7:
           newElement.setAttribute('id', 'triceratops')
           newElement.setAttribute('gltf-model', '#tri')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 25 0`)
           escala = '0.7 0.7 0.7'
           break;
         case 8:
           newElement.setAttribute('id', 'velociraptor')
           newElement.setAttribute('gltf-model', '#velo')
           newElement.setAttribute('animation-mixer', '')
+          newElement.setAttribute('rotation', `0 -7 0`)
           escala = '5 5 5'
           break;
       }
