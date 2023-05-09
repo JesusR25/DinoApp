@@ -9,7 +9,7 @@ function captura() {
     canvas.width = video.videoWidth;
     canvas.height = video.videoHeight;
     canvas.getContext('2d').drawImage(video, 0, 0, canvas.width, canvas.height);
-    return Canvas2Image.saveAsImage(canvas, null, null, "png", "img");
+    
 }
 
 const constraints = {
