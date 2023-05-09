@@ -8,6 +8,7 @@
         <script type="text/javascript" src="../js/jsqrscanner.nocache.js"></script>
         <script type="text/javascript" src="../js/marcadores/camara.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
+        <script src="https://unpkg.com/merge-images"></script>
 
     </head>
     <body id="todo">
@@ -15,6 +16,7 @@
         <a-scene renderer="colorManagement: true" tap-place>
             <div class="qrscanner" id="scanner"></div>
             <a-assets>
+                <video id="webcam" playsinline></video>
                 <a-asset-items id="treeModel" src="../assets/tre.glb"></a-asset-items>
                 <a-asset-item id="tmod" src="../assets/Dinosaurios/animated_t-rex_dinosaur_biting_attack_loop.glb"></a-asset-item>
                 <a-asset-item id="bramod" src="../assets/Dinosaurios/brachiosaurus-jwe.glb"></a-asset-item>
