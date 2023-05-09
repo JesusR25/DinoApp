@@ -92,7 +92,7 @@ AFRAME.registerComponent('tap-place', {
           newElement.setAttribute('gltf-model', '#tmod')
           newElement.setAttribute('animation-mixer', '')
           newElement.setAttribute('rotation', `0 0 0`)
-          escala = '7 7 7'
+          escala = '3 3 3'
           break;
         case 2:
           newElement.setAttribute('id', 'brachi')
