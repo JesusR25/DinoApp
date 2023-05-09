@@ -8,10 +8,13 @@
         <script type="text/javascript" src="../js/jsqrscanner.nocache.js"></script>
         <script type="text/javascript" src="../js/marcadores/camara.js"></script>
         <script src="https://hammerjs.github.io/dist/hammer.min.js"></script>
-        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
+        <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
         <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
+
     </head>
     <body id="todo">
+        <video playsinline autoplay style="display: none;"></video>
+        <canvas style="display: none;"></canvas>
         <div id="captura">
             <div class="qrscanner" id="scanner"></div>
         <a-scene renderer="colorManagement: true" tap-place>
