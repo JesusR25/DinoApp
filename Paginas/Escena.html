@@ -11,9 +11,9 @@
         <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/html2canvas@1.0.0-rc.1/dist/html2canvas.min.js"></script>
         <script src="https://superal.github.io/canvas2image/canvas2image.js"></script>
     </head>
-    <body id="cuerpo">
-        
-        <div class="qrscanner" id="scanner"></div>
+    <body id="todo">
+        <div>
+            <div class="qrscanner" id="scanner"></div>
         <a-scene renderer="colorManagement: true" tap-place>
             <a-assets>
                 <a-asset-items id="treeModel" src="../assets/tre.glb"></a-asset-items>
@@ -40,6 +40,7 @@
             <button class="butt" id="btn7" onclick="tri();">Tri</button>
             <button class="butt" id="btn8" onclick="velo();">Velo</button>
             <button class="butt" id="btn9" onclick="f();">Captura</button>
+        </div>
         </div>
     </body>
 </html>
