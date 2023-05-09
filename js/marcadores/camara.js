@@ -680,25 +680,25 @@ AFRAME.registerComponent("movmesasa", {
         hammertime.on("panleft", () => {
             if (!mesasa) return;
             this.isPanning = true
-            modmesa.position.x += 4 * Math.PI / 360;
+            modmesa.position.x += 200 * Math.PI / 360;
         })
   
         hammertime.on("panright", () => {
             if (!mesasa) return;
             this.isPanning = true
-            modmesa.position.x -= 4 * Math.PI / 360;
+            modmesa.position.x -= 200 * Math.PI / 360;
         })
   
         hammertime.on("panup", () => {
             if (!mesasa) return;
             xrot = true;
-            modmesa.position.y += 4 * Math.PI / 360;
+            modmesa.position.y += 200 * Math.PI / 360;
         })
   
         hammertime.on("pandown", () => {
             if (!mesasa) return;
             xrot = true;
-            modmesa.position.y -= 4 * Math.PI / 360;
+            modmesa.position.y -= 200 * Math.PI / 360;
         })
   
   
